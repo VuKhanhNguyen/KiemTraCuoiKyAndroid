@@ -1,7 +1,7 @@
 package com.thick124.lop03.nhom13.DATA.InterfaceAPI.LoginApi;
 
-import com.example.quizapp.DATA.Models.LoginRequest;
-import com.example.quizapp.DATA.Models.User;
+import com.thick124.lop03.nhom13.DATA.Models.LoginRequest;
+import com.thick124.lop03.nhom13.DATA.Models.User;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

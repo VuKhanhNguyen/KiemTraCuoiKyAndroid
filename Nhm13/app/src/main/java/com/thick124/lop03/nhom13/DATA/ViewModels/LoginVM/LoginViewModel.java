@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.quizapp.DATA.Models.User;
-import com.example.quizapp.DATA.Repository.LoginRepo;
+import com.thick124.lop03.nhom13.DATA.Models.User;
+import com.thick124.lop03.nhom13.DATA.Repository.LoginRepo;
 
 public class LoginViewModel extends ViewModel {
     private final LoginRepo loginRepo;

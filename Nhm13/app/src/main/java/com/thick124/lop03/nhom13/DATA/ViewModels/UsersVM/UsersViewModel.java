@@ -3,8 +3,8 @@ package com.thick124.lop03.nhom13.DATA.ViewModels.UsersVM;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.quizapp.DATA.Models.User;
-import com.example.quizapp.DATA.Repository.UsersRepo;
+import com.thick124.lop03.nhom13.DATA.Models.User;
+import com.thick124.lop03.nhom13.DATA.Repository.UsersRepo;
 
 import java.util.List;
 

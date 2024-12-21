@@ -1,7 +1,7 @@
 package com.thick124.lop03.nhom13.DATA.InterfaceAPI.UserApi;
 
-import com.example.quizapp.DATA.InterfaceAPI.RetrofitService;
-import com.example.quizapp.DATA.Models.User;
+import com.thick124.lop03.nhom13.DATA.InterfaceAPI.RetrofitService;
+import com.thick124.lop03.nhom13.DATA.Models.User;
 
 import java.util.List;
 
