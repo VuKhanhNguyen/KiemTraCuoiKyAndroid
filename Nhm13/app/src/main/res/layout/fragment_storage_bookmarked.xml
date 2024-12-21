@@ -1,0 +1,77 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="700dp"
+    android:layout_gravity="center_vertical"
+    android:background="#00898989"
+    tools:context=".storage_bookmarkedFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="660dp"
+        android:background="#009B1D1D"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Thanh tìm kiếm -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/searchEditText"
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/border_search_stograge"
+                android:hint="Tìm kiếm"
+                android:drawableEnd="@raw/search"
+                android:drawablePadding="8dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="10dp"
+                android:textColorHint="#383838" />
+
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/spinner_selected_background"
+                    android:dropDownHorizontalOffset="55dp"
+                    android:dropDownVerticalOffset="40dp"
+                    android:entries="@array/categories"
+                    android:paddingLeft="5dp"
+                    android:popupBackground="@drawable/spinner_item_background" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@raw/imagedownarrow_combobox_s" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Divider -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/black" />
+
+        <!-- RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewBookmarked"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#00838383" />
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="1075px"
+    android:layout_height="2400px"
+    android:background="@raw/bg"
+    tools:context=".MainScreen">
+
+    <TextView
+        android:id="@+id/bxh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/baloo2_regular"
+        android:text="Bảng xếp hạng"
+        android:textColor="#FFFFFF"
+        android:textSize="100px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.00999999"/>
+    <!-- hien thi top 3 -->
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="185dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <LinearLayout
+            android:id="@+id/top2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@id/top1">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="102dp"
+                    android:background="@drawable/bg_top_user_leaderbroad"
+                    android:backgroundTint="#CCFFFFFF"
+                    android:layout_alignParentBottom="true"
+                    />
+
+                <TextView
+                    android:id="@+id/tvtop2username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/baloo2_regular"
+                    android:text="Nguyễn Vũ Khanh"
+                    android:textColor="@color/white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="35dp"
+                    />
+                <TextView
+                    android:id="@+id/tvtop2points"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/baloo2_regular"
+                    android:text="10.000"
+                    android:textColor="@color/white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="17dp"
+                    />
+
+
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="fitCenter"
+                    android:src="@raw/top2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/top1"
+
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="120dp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="121dp"
+                    android:layout_alignParentBottom="true"
+
+                    android:background="@drawable/bg_top_user_leaderbroad" />
+
+                <TextView
+                    android:id="@+id/tvtop1username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/baloo2_regular"
+                    android:text="Trần Đình Quý"
+                    android:textColor="@color/white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="35dp"
+                    />
+                <TextView
+                    android:id="@+id/tvtop1points"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/baloo2_regular"
+                    android:text="10.000"
+                    android:textColor="@color/white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="17dp"
+                    />
+
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitCenter"
+                    android:src="@raw/crown"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="-5dp"
+                    android:layout_gravity="top|center_horizontal"
+                    />
+                <ImageView
+                    android:layout_width="93dp"
+                    android:layout_height="93dp"
+                    android:scaleType="fitCenter"
+                    android:src="@raw/top1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="25dp"
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/top3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/top1"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="102dp"
+                    android:background="@drawable/bg_top_user_leaderbroad"
+                    android:backgroundTint="#CCFFFFFF"
+                    android:layout_alignParentBottom="true"
+                    />
+
+                <TextView
+                    android:id="@+id/tvtop3username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11.5sp"
+                    android:fontFamily="@font/baloo2_regular"
+                    android:text="Nguyễn Đình Đức"
+                    android:textColor="@color/white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="35dp"
+                    />
+                <TextView
+                    android:id="@+id/tvtop3points"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/baloo2_regular"
+                    android:text="10.000"
+                    android:textColor="@color/white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="17dp"
+                    />
+
+
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:scaleType="fitCenter"
+                    android:src="@raw/top3"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="372.571dp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#73F5F5F5"
+        app:cardCornerRadius="7dp"
+        app:cardElevation="0dp"
+        app:cardMaxElevation="0dp"
+        android:layout_marginTop="100dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bxh"
+        app:layout_constraintVertical_bias="0.65">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewLeaderboard"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:padding="8dp"
+            android:clipToPadding="false"
+            android:scrollbars="vertical" />
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
