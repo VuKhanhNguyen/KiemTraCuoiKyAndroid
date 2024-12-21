@@ -1,0 +1,143 @@
+
+package com.thick124.lop03.nhom13.DATA.Repository;
+
+import android.util.Log;
+
+import androidx.lifecycle.MutableLiveData;
+
+import com.example.quizapp.DATA.InterfaceAPI.MarkedQuestionApi.MarkedQuestionApiManager;
+import com.example.quizapp.DATA.Models.MarkedQuestion;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class MarkedQuestionRepo {
+    private static volatile MarkedQuestionRepo getInstance;
+
+    private final MarkedQuestionApiManager markedQuestionApiManager;
+
+    private final MutableLiveData<List<MarkedQuestion>> MQs = new MutableLiveData<>();
+    private final MutableLiveData<MarkedQuestion> MQ = new MutableLiveData<>();
+    private final MutableLiveData<Boolean> operationSuccess = new MutableLiveData<>();
+
+    public MarkedQuestionRepo(){
+
+        markedQuestionApiManager = MarkedQuestionApiManager.getInstance();
+    }
+
+    public MutableLiveData<List<MarkedQuestion>> getMarkedQuestions() {
+        markedQuestionApiManager.getMarkedQuestions(new Callback<List<MarkedQuestion>>() {
+            @Override
+            public void onResponse(Call<List<MarkedQuestion>> call, Response<List<MarkedQuestion>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<MarkedQuestion> body = response.body();
+                    MQs.setValue(body);
+                } else {
+                    MQs.postValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<MarkedQuestion>> call, Throwable throwable) {
+                MQs.postValue(null);
+                Log.e("MarkedQuestionRepo", "failed to getMarkedQuestions: " + throwable.getMessage());
+            }
+        });
+        return MQs;
+    }
+
+    public MutableLiveData<List<MarkedQuestion>> getMarkedQuestionsByUsername(String username) {
+        markedQuestionApiManager.getMarkedQuestionByUsername(username, new Callback<List<MarkedQuestion>>() {
+            @Override
+            public void onResponse(Call<List<MarkedQuestion>> call, Response<List<MarkedQuestion>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<MarkedQuestion> body = response.body();
+                    MQs.setValue(body);
+                } else {
+                    MQs.postValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<MarkedQuestion>> call, Throwable throwable) {
+                MQs.postValue(null);
+                Log.e("MarkedQuestionRepo", "failed to getMarkedQuestionsByUsername: " + throwable.getMessage());
+            }
+        });
+        return MQs;
+    }
+
+
+    public MutableLiveData<MarkedQuestion> getMarkedQuestionByUsernameAndIdQuestion(String username, int idQuestion){
+        markedQuestionApiManager.getMarkedQuestionByUsernameAndIdQuestion(username, idQuestion, new Callback<MarkedQuestion>() {
+            @Override
+            public void onResponse(Call<MarkedQuestion> call, Response<MarkedQuestion> response) {
+                if (response.isSuccessful() && response.body()!=null){
+                    MarkedQuestion body = response.body();
+                    MQ.setValue(body);
+                }else {
+                    MQ.postValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MarkedQuestion> call, Throwable throwable) {
+                MQ.postValue(null);
+                Log.e("MakedQuestionRepo", "failed to getMarkedQuestionByUsernameAndIdQuestion: "+throwable.getMessage() );
+            }
+        });
+        return MQ;
+    }
+
+    public MutableLiveData<Boolean> postMarkedQuestion(MarkedQuestion markedQuestion){
+        markedQuestionApiManager.postMarkedQuestion(markedQuestion, new Callback<MarkedQuestion>() {
+            @Override
+            public void onResponse(Call<MarkedQuestion> call, Response<MarkedQuestion> response) {
+                operationSuccess.setValue(response.isSuccessful());
+            }
+
+            @Override
+            public void onFailure(Call<MarkedQuestion> call, Throwable throwable) {
+                operationSuccess.setValue(false);
+                Log.e("MarkedQuestionRepo", "failed to postMarkedQuestion: "+throwable.getMessage() );
+            }
+        });
+        return operationSuccess;
+    }
+
+    public MutableLiveData<Boolean> putMarkedQuestion(String username, int idQuestion, MarkedQuestion questionSet){
+        markedQuestionApiManager.putMarkedQuestion(username, idQuestion, questionSet, new Callback<MarkedQuestion>() {
+            @Override
+            public void onResponse(Call<MarkedQuestion> call, Response<MarkedQuestion> response) {
+                operationSuccess.setValue(response.isSuccessful());
+            }
+
+            @Override
+            public void onFailure(Call<MarkedQuestion> call, Throwable throwable) {
+                operationSuccess.setValue(false);
+                Log.e("MarkedQuestionRepo", "failed to putMarkedQuestion: "+throwable.getMessage() );
+            }
+        });
+        return operationSuccess;
+    }
+
+    public MutableLiveData<Boolean> deleteMarkedQuestion(String username, int idQuestion){
+        markedQuestionApiManager.deleteMarkedQuestion(username, idQuestion, new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                operationSuccess.setValue(response.isSuccessful());
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable throwable) {
+                operationSuccess.setValue(false);
+                Log.e("MarkedQuestionRepo", "failed to deleteMarkedQuestion: "+throwable.getMessage() );
+            }
+        });
+        return  operationSuccess;
+    }
+
+}
